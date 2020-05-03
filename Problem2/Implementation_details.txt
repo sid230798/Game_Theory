@@ -1,0 +1,32 @@
+Data Structure Used :
+
+    1. As it's for two players, Utility is stored in matrix of two dimension.
+    2. Ordering of axis is same (s1, s2).
+
+----------------------------------------------------------------------------------------------
+
+Algorithm :
+
+    1. I have used Lo exist are Linear programming for solving msne.
+
+    Two conditions for MSNE to exist are :
+
+        1. u(s_i, sigma_(-i)*) = u(s_i' , sigma_(-i)*) for all s_i, s_i' in delta_(s1).
+        2. u(s_i, sigma_(-i)*) >= u(s_i' , sigma_(-i)*) for all s_i in delta_(s1), s_i' not in delta.
+
+    2. LP formulation for this is :
+
+            Max u(s_i, sigma_(-i)*).
+
+            such that satisfying above two conditions and sum(sigma_(-i)) = 1.
+
+
+        Clearly, utilising conditions for player1 will give sigma2 and for player2 will
+        give sigma1.If both converges then we have solution.
+
+    3. Repeat above process for each possible delta_Set.
+
+
+    Time Complexity : 
+
+    T = (2^s1 - 1)*(2^s2 - 1)*LP_Solver_Time.    

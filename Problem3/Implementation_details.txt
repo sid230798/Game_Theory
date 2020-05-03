@@ -1,0 +1,23 @@
+Data Structures Used : 
+
+    1. Utilities are stored in array of array's. Basically stored it 
+      in a matrix of n-dimension.
+    2. Ordering of axis is same for all players. (s_1, s_2, s_3, .......)
+
+------------------------------------------------------------------------------------------------
+
+Algorithm Used :
+
+1. Saddle Points :
+
+    a. Get max value across axis 0 and min value across axis 1.
+    b. Get min_val of that max values across axis=0 and max value of that min values
+        across axis=1. If max_val == min_val Saddle Point exists and print it.
+
+    T = O(s1*s2)
+
+2. MSNE :
+
+    a. Solve LP as formulated in lectures.
+
+    T = LP_Solver.

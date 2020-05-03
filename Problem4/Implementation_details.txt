@@ -1,0 +1,39 @@
+Data Structures Used : 
+
+    1. Utilities are stored in array of array's. Basically stored it 
+      in a matrix of 2-dimension.
+    2. Utilitity is of form Outcomes*Theta.
+    3. Social Choice function is list in order of all possible Theta.
+        Theta = [(a1, a2), (a1, b2)]. Outcomes will be  = [x, x] or [x, y] or many.....
+
+------------------------------------------------------------------------------------------------
+
+Algorithms :
+
+    1. Dominant Strategy incentive compatible.
+
+        a. Reshape Utility in form of Theta1*Theta2*.....ThetaN*Theta1.
+            First N Theta selects outcome So just opening array for outcome axis.
+        b. Iterate for theta_i , select array for a[:,:,:....:theta_i] .
+            So we get array's for u(theta_i', theta_i) for all theta_i'
+        c. if max row is = theta_i, theta_i it can be disc if not return false
+        d. Clearly in max indices if u(f(theta_i, theta_-i), theta_i) >= u(f(theta_i', theta_-i))
+
+        T = O(N*len(cartesain_product_theta)*prod(theta))
+
+    2. ExPost-Efficient
+
+        a. Iterate for each f(theta) = outcome.
+        b. Check for every player if outcome is pareto optimal.
+
+        T = (len(cartesain_product_theta)*outcomes*theta_i*N)
+
+    3. Non-dictatorial 
+
+        a. Iterate for each player.
+        b. Take max of all oucomes for particular player utility.
+        c. Get values of utility for specified scf.
+        d. Check if two specified array are equal. if equal it's dictatorial
+
+        T = (N*len(cartesain_product_theta))
+    

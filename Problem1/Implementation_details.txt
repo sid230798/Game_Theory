@@ -1,0 +1,70 @@
+Data Structures Used : 
+
+    1. Utilities are stored in array of array's. Basically stored it 
+      in a matrix of n-dimension.
+    2. Ordering of axis is same for all players. (s_1, s_2, s_3, .......)
+
+------------------------------------------------------------------------------------------------
+
+Algorithm Used :
+
+--  All Algorithms are implemented generically. 
+    Number of players and strategies can be anything.
+--  s1, s2, s3 = Total numbers of strategies of Players
+
+1. Strongly Dominant Strategy
+
+    a. For each s_(-i) get max s_i.(If multiple s_i are there for 
+       same s_(-i) no startegy can be SDS.)
+    b. If all values of above matrix are same that means it is SDS.
+    
+    Time Complexity :
+
+    Get max values : O(s1*s2*s3*......)
+    Repeat this for each player.
+
+    T = O(N*s1*s2*s3*.........)
+
+2. Weakly Dominant Strategy
+
+    a. Use similar strategy as SDS. For each s_(-i) get max s_i. (If multiple s_i
+       Store it in vector.)
+    b. If all values contain in common only one value. Then WDS exists. This is of order(N)
+
+    Time complexity :
+
+    T = O(N*s1*s2*s3*.........)
+
+3. SDSE : If all players have SDS then SDSE exists.
+4. WDSE : If all players have WDS then WDSE exists.
+
+5. Nash Equilibrium
+
+    a. For all S_(-i) get max vals and corresponding index.(max, s_i).
+    b. Create tuple(s_i, s_(-i)). For each player.
+    c. Check if all N matrices, have any tuple in common if yes then we have nash equilibrium.
+
+    Time Complexity :
+
+        a. First two steps will take O(N*s1*s2*s3....)
+        b. Third Step stores indices in sorted order so O(s_(-i))
+
+    T = O(N*s1*s2*s3.......)
+
+6. Maxmin Values 
+
+    a. Get minval for all s_(-i). That is tuples of form (s_i , min val) will be formed.
+    b. Get max out of this.
+
+    Time Complexity :
+
+    T = O(N*s1*s2*s3......)
+
+6. Minmax Values 
+
+    a. Get maxval for all s_i. That is tuples of form (s_(-i), max_val) will be formed.
+    b. Get min out of this.
+
+    Time Complexity : 
+    
+    T = O(N*s1*s2*s3........)
